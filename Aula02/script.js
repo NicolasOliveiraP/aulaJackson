@@ -26,6 +26,17 @@ function login(){
     document.getElementById("pass").value = null;
 }
 
+function remove() {
+    let username = document.getElementById("UserDelete").value
+    let pos = indexOfByUis(username)
+    if(pos != -1){
+        bancoDeDados.splice(pos, 1)
+        alert(username + " foi removido com sucesso!")
+    }else{
+        alert(usuario + " não foi encontrado!")
+    }
+}
+
 
 function existe(username){
     for(let usuario of bancoDeDados){
