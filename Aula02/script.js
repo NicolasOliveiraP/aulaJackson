@@ -26,12 +26,14 @@ function login(){
 }
 
 
-function existe(){
-   let pos = bancoDeDados.indexOf(username.toUpperCase());
-    if(pos == -1){
-        return false;
-    }else{
-        return true;
+function existe(username){
+    for(let usuario of bancoDeDados){
+        if(usuario.username == username){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
    }
 
