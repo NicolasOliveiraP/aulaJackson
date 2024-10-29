@@ -14,15 +14,16 @@ function add(){
     }
 }
 function login(){
-    let usuario = document.getElementById("user").value;
-    let pos = bancoDeDados.indexOf(usuario.toUpperCase());
-    if(pos == -1){
-        alert("Usuário não cadastrado");
+    let usuario = document.getElementById("user").value.toUpperCase();
+    let senha = document.getElementById("pass").value
+    if(autentica(usuario, senha) == false){
+        alert("Falha de autenticação =/");
     }
     else{
-        alert("Bem-vindo");
+        alert("Bem-vindo ao sistema :p");
     }
     document.getElementById("user").value = null;
+    document.getElementById("pass").value = null;
 }
 
 
@@ -31,9 +32,25 @@ function existe(username){
         if(usuario.username == username){
             return true;
         }
-        else{
-            return false;
-        }
     }
+    return false;
    }
 
+function autentica(username, password){
+    for(let usuario of bancoDeDados){
+        alert("Cheguei")
+        if(usuario.username == username && usuario.password == password){
+            return true;
+        }
+    }
+    return false;
+   }
+
+function indexOfByUis(username){
+    for(let usuario of bancoDeDados){
+        if(usuario.username == username){
+            return bancoDeDados.indexOf(usuario);
+        }
+    }
+    return -1;
+}
